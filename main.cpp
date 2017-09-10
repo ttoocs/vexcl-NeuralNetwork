@@ -46,7 +46,7 @@ void testConstructor(){
   vex::vector<double> input = nn::randVec<double> (SIZEIN);
 
   auto ret = testConst.forward(input);
-//  std::cout << ret << std::endl;
+  std::cout << ret << std::endl;
 }
 
 
