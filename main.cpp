@@ -14,30 +14,39 @@ void testLayer(){
 
   vex::vector<double> input(32);
   input = 2 * rnd(vex::element_index(), std::rand()) -1 ;
-//  we = rnd(vex::element_index(0,10), std::rand());
-//
-//  std::vector<double> test(10);
-//  test.push_back(32);
-
-//  vex::copy(we,test);
-
-//  std::cout << testLayer.weights << std::endl;
-
-//  std::cout << input << std::endl;
-
-// for (std::vector<double>::const_iterator i = test.begin(); i != test.end(); ++i)
-//    std::cout << *i << ',';
-//  std::cout << std::endl;
-
-//  std::cout << test << std::endl;
-
-//  vex::vector<double> input(32*32);
-//  vex::vector<double> input = 4 * rnd(vex::element_index(0,32*32), std::rand()) - 1;
-  
 
   auto ret = testLayer.forward(input);
 
-  std::cout << input  << std::endl;
+  std::cout << ret << std::endl;
+}
+void testMult(){
+  nn::layer<double> testLayer;
+  testLayer.width=1;
+  testLayer.height=3;
+  testLayer.weights.resize(3*1);
+  vex::Random<double, vex::random::threefry> rnd;
+  testLayer.weights[0] = 0;
+  testLayer.weights[1] = 2;
+  testLayer.weights[2] = -2;
+
+  vex::vector<double> input(3);
+  input[0] = 1;
+  input[1] = 1;
+  input[2] = 1;
+
+  auto ret = testLayer.forward(input);
+
+  std::cout << ret << std::endl;
+}
+
+void testConstructor(){
+  #define SIZEIN  1024*1024
+  #define SIZEOUT  1024*1024*3
+  nn::layer<double> testConst(SIZEIN,SIZEOUT,true);
+  vex::vector<double> input = nn::randVec<double> (SIZEIN);
+
+  auto ret = testConst.forward(input);
+//  std::cout << ret << std::endl;
 }
 
 
@@ -51,9 +60,8 @@ int main() {
   // Print out list of selected devices:
   std::cout << ctx << std::endl;
 
-  testLayer();
+//  testLayer();
+//  testMult();
+  testConstructor();
 }
-
-
-
 
