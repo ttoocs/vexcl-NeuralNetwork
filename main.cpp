@@ -46,7 +46,7 @@ void testConstructor(){
   vex::vector<double> input = nn::randVec<double> (SIZEIN);
 
   auto ret = testConst.forward(input);
-  std::cout << ret << std::endl;
+//  std::cout << ret << std::endl;
 }
 
 
@@ -60,8 +60,8 @@ int main() {
   // Print out list of selected devices:
   std::cout << ctx << std::endl;
 
-//  testLayer();
-//  testMult();
+  testLayer();
+  testMult();
   testConstructor();
 }
 
