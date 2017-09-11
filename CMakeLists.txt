@@ -11,7 +11,7 @@ add_definitions(
 set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/bin)
 
 
-add_library(nn SHARED nn.cpp)
+add_library(nn SHARED nn-impl.cpp)
 target_link_libraries(nn VexCL::OpenCL)
 set_property(TARGET nn PROPERTY CXX_STANDARD 14)
 
