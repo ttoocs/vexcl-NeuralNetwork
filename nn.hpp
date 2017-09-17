@@ -1,3 +1,4 @@
+#pragma once
 #include <vexcl/vexcl.hpp>
 
 namespace nn{
@@ -62,3 +63,4 @@ namespace nn{
   };
 
 }
+
